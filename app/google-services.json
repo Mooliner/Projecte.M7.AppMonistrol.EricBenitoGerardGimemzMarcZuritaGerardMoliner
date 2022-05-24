@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "725085348044",
+    "project_id": "esculturesapp",
+    "storage_bucket": "esculturesapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725085348044:android:ff5aadfa4ef756635ea269",
+        "android_client_info": {
+          "package_name": "com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725085348044-ta4kd7anck9ll8o2bklk0tcf39drcg9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUWoGRofFvN6tYvbGWxlx-6_axpflrebc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725085348044-ta4kd7anck9ll8o2bklk0tcf39drcg9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725085348044:android:be6aa60773558d675ea269",
+        "android_client_info": {
+          "package_name": "com.moliner.prova"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725085348044-ta4kd7anck9ll8o2bklk0tcf39drcg9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUWoGRofFvN6tYvbGWxlx-6_axpflrebc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725085348044-ta4kd7anck9ll8o2bklk0tcf39drcg9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725085348044:android:9f3f05e7b526da435ea269",
+        "android_client_info": {
+          "package_name": "org.jgual.cloudfirestore01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725085348044-ta4kd7anck9ll8o2bklk0tcf39drcg9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUWoGRofFvN6tYvbGWxlx-6_axpflrebc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725085348044-ta4kd7anck9ll8o2bklk0tcf39drcg9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
