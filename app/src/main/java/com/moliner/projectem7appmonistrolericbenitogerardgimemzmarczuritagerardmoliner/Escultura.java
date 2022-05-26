@@ -3,12 +3,13 @@ package com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerard
 import com.google.firebase.firestore.Blob;
 import com.google.firebase.firestore.DocumentReference;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Escultura {
+public class Escultura implements Serializable {
 
     private String idEscultura;
     private Map<String, String> nom;
@@ -17,11 +18,11 @@ public class Escultura {
     private Double amplada;
     private Double pes;
     private Integer any;
-    private Map<String, Blob> audio;
-    private List<Blob> imatges;
+    private transient Map<String, Blob> audio;
+    private transient List<Blob> imatges;
     private Double latitud;
     private Double longitud;
-    private DocumentReference artista;
+    private transient DocumentReference artista;
 
     public Escultura() {
         nom = new HashMap<String, String>();

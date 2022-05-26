@@ -27,7 +27,7 @@ public class EsculturesFragment extends Fragment {
     private Context context;
     RecyclerView rvEscultures;
     FirebaseFirestore db;
-    com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner.EsculturaAdapterFirestore adapter;
+    EsculturaAdapterFirestore adapter;
 
     public EsculturesFragment() {
 
@@ -61,13 +61,13 @@ public class EsculturesFragment extends Fragment {
         rvEscultures.setHasFixedSize(false);
         rvEscultures.setLayoutManager(new GridLayoutManager(context, 2));
         Query consulta = db.collection("Escultures").limit(50);
-        FirestoreRecyclerOptions<com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner.Escultura> opcions =
+        FirestoreRecyclerOptions<Escultura> opcions =
                 new FirestoreRecyclerOptions
-                        .Builder<com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner.Escultura>()
-                        .setQuery(consulta, com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner.Escultura.class)
+                        .Builder<Escultura>()
+                        .setQuery(consulta, Escultura.class)
                         .build();
 
-        adapter = new com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner.EsculturaAdapterFirestore(opcions);
+        adapter = new EsculturaAdapterFirestore(opcions);
         rvEscultures.setAdapter(adapter);
 
         return view;

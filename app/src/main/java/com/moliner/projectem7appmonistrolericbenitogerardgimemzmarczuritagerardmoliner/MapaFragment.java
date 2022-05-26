@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,9 +36,13 @@ public class MapaFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+    String nomArtista;
+
+
+    GoogleMap mMap;
 
     public MapaFragment() {
-        // Required empty public constructor
+
     }
 
 
@@ -64,10 +70,14 @@ public class MapaFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_mapa, container, false);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.frg);
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(GoogleMap mMap) {
+            public void onMapReady(GoogleMap googleMap) {
+
+                mMap = googleMap;
+                String[] idArt = new String[1];
+
                 mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                 mMap.clear(); //clear old markers
                 BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.mapaicone);
@@ -82,6 +92,7 @@ public class MapaFragment extends Fragment {
                 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 1000, null);
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+
                 db.collection("Escultures")
                         //.document()
                         .get()
@@ -90,24 +101,72 @@ public class MapaFragment extends Fragment {
                                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                        if (task.isSuccessful()) {
                                                            for(QueryDocumentSnapshot doc: task.getResult()) {
-                                                               com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner.Escultura esc = doc.toObject(com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner.Escultura.class);
-                                                               mMap.addMarker(new MarkerOptions()
-                                                                       .position(new LatLng(esc.getLatitud(), esc.getLongitud()))
-                                                                       .title(esc.getNom().get("ca"))
-                                                                       .snippet("Nom")
-                                                                       .icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+                                                               Escultura esc = doc.toObject(Escultura.class);
+                                                               idArt[0] = esc.getArtista().getId();
+                                                               Log.e("REFERENCIA", idArt[0]);
                                                            }
+
+
+
                                                        }
                                                    }
                                                }
                         );
+
+                db.collection("Artistes")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (QueryDocumentSnapshot doc : task.getResult()) {
+                                        Artista art = doc.toObject(Artista.class);
+                                        //Log.e("REFERENCIA1", idArt[0]);
+
+
+                                        if(art.getIdArtista().equals(idArt[0])){
+                                            nomArtista = art.getNom() + " " + art.getCognoms();
+                                            //Log.e("NOMARTISTA", nomArtista);
+                                        }
+                                        db.collection("Escultures")
+                                                //.document()
+                                                .get()
+                                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                                           @Override
+                                                                           public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                                               if (task.isSuccessful()) {
+                                                                                   for(QueryDocumentSnapshot doc: task.getResult()) {
+                                                                                       Escultura esc = doc.toObject(Escultura.class);
+                                                                                       //Log.e("NOMARTISTA2", nomArtista);
+                                                                                       mMap.addMarker(new MarkerOptions()
+                                                                                               .position(new LatLng(esc.getLatitud(), esc.getLongitud()))
+                                                                                               .title(esc.getNom().get("ca"))
+                                                                                               .snippet("Nom")
+                                                                                               .icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+                                                                                       Prova(esc.getNom().get("ca"), nomArtista);
+                                                                                   }
+
+
+
+                                                                               }
+                                                                           }
+                                                                       }
+                                                );
+                                    }
+
+                                } else {
+
+                                }
+                            }
+                        });
+
+
+
                 mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                     @Override
                     public boolean onMarkerClick(@NonNull Marker marker) {
-                        startActivity(new Intent(getActivity(), EsculturesWindows.class).putExtra("nameEscultura", marker.getTitle()));
-
-                        Toast.makeText(getActivity(), "CLICK"+ marker.getTitle(), Toast.LENGTH_LONG).show();
-                        return false;
+                        marker.showInfoWindow();
+                            return true;
                     }
                 });
 
@@ -117,5 +176,14 @@ public class MapaFragment extends Fragment {
 
 
         return rootView;
+    }
+
+    private void Prova(String nomTitle, String nomAuthor){
+        mMap.setInfoWindowAdapter(new CustomInfoWindowsAdapter(
+                MapaFragment.this.getActivity(),
+                nomTitle,
+                nomAuthor,
+                (BitmapDrawable) getResources().getDrawable(R.drawable.foto1)
+        ));
     }
 }

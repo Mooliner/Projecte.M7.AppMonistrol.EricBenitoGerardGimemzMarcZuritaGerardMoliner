@@ -1,5 +1,6 @@
 package com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -22,9 +23,9 @@ public class ArtistaAdapterFirestore extends FirestoreRecyclerAdapter<Artista, A
 
     @Override
     protected void onBindViewHolder(@NonNull ArtistaHolder holder, int position, @NonNull Artista model) {
+        holder.artista = model;
         holder.tvNomArtista.setText(model.getNom());
         holder.tvCognomsArtista.setText(model.getCognoms());
-        //holder.ivArtista.setImageResource(R.drawable.fotoartista1);
         Bitmap bmp =BitmapFactory.decodeByteArray(model.getFoto().toBytes(),0, model.getFoto().toBytes().length);
         holder.ivArtista.setImageBitmap(
                 Bitmap.createScaledBitmap(
@@ -41,12 +42,31 @@ public class ArtistaAdapterFirestore extends FirestoreRecyclerAdapter<Artista, A
     public class ArtistaHolder extends RecyclerView.ViewHolder {
         ImageView ivArtista;
         TextView tvNomArtista, tvCognomsArtista;
+        Artista artista;
+
         public ArtistaHolder(@NonNull View itemView) {
             super(itemView);
-
             ivArtista = itemView.findViewById(R.id.ivArtista);
             tvNomArtista = itemView.findViewById(R.id.tvNomArtista);
             tvCognomsArtista = itemView.findViewById(R.id.tvCognomsArtista);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(itemView.getContext(), DetailArtist.class);
+                    intent.putExtra("artista", artista);
+
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+        }
+
+        public void bind(Artista modelartista){
+
+            artista = modelartista;
+            tvNomArtista.setText(artista.getNom());
+            tvCognomsArtista.setText(artista.getCognoms());
+
         }
     }
 }

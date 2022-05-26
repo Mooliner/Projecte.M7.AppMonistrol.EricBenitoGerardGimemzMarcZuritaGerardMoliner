@@ -6,8 +6,6 @@
     tools:context=".HomeFragment"
     android:orientation="vertical"
     android:weightSum="4">
-
-    <!--Header amb el botó de cambiar de TextSize -->
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -28,7 +26,7 @@
             android:scaleType="fitEnd"
             android:src="@mipmap/ic_textsize_foreground" />
     </LinearLayout>
-    <!--Scroll de tota l'imatge i Text View -->
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -44,7 +42,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_weight="0">
 
-                <!--Imatge -->
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="280dp"
@@ -54,7 +52,6 @@
                     android:src="@mipmap/lg_coleccio_foreground" />
             </LinearLayout>
 
-            <!-- Text Layout -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -62,7 +59,7 @@
                 android:layout_marginTop="0dp"
                 android:font="@font/roboto">
 
-                <!-- Text -->
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

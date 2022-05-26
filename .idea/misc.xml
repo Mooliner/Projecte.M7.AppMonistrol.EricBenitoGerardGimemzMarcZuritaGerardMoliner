@@ -14,13 +14,21 @@
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.124" />
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/drawable-v24/ic_mapa_boto_background.xml" value="0.124" />
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/drawable-v24/ic_textsize_background.xml" value="0.124" />
+        <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/drawable/ic_artistess_background.xml" value="0.3415" />
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/font/font.xml" value="0.284375" />
+        <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/activity_detail_escultura.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/artistes.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/custom_info_window.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/detailartist.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/escultures.xml" value="0.1890625" />
+        <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/fitxa_artista.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/fragment_artistes.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/fragment_escultures.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/fragment_fundacio.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/fragment_mapa.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/ic_baseline_arrow_back_24.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/window_escultures.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/layout/windows_escultures.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gmoli/AndroidStudioProjects/ProjecteM7AppMonistrolEricBenitoGerardGimemzMarcZuritaGerardMoliner/app/src/main/res/menu/botonera_menu.xml" value="0.25416666666666665" />

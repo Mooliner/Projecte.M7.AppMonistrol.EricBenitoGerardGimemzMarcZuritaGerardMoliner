@@ -1,5 +1,6 @@
 package com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -14,21 +15,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-public class EsculturaAdapterFirestore extends FirestoreRecyclerAdapter<com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner.Escultura, EsculturaAdapterFirestore.EsculturaHolder> {
+public class EsculturaAdapterFirestore extends FirestoreRecyclerAdapter<Escultura, EsculturaAdapterFirestore.EsculturaHolder> {
 
-    public EsculturaAdapterFirestore(@NonNull FirestoreRecyclerOptions<com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner.Escultura> options) {
+    public EsculturaAdapterFirestore(@NonNull FirestoreRecyclerOptions<Escultura> options) {
         super(options);
     }
 
 
     @Override
-    protected void onBindViewHolder(@NonNull EsculturaHolder holder, int position, @NonNull com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerardmoliner.Escultura model) {
+    protected void onBindViewHolder(@NonNull EsculturaHolder holder, int position, @NonNull Escultura model) {
         holder.tvNomEscultura.setText(model.getNom().get("ca"));
-        //holder.ivEscultura.setImageResource(R.drawable.foto2);
         Bitmap bmp = BitmapFactory.decodeByteArray(model.getImatges().get(0).toBytes(), 0, model.getImatges().get(0).toBytes().length);
         holder.ivEscultura.setImageBitmap(
                 Bitmap.createScaledBitmap(
                         bmp, 400, 400, true));
+        holder.escultura = model;
     }
 
     @NonNull
@@ -41,12 +42,30 @@ public class EsculturaAdapterFirestore extends FirestoreRecyclerAdapter<com.moli
     public class EsculturaHolder extends RecyclerView.ViewHolder {
         ImageView ivEscultura;
         TextView tvNomEscultura;
+        Escultura escultura;
 
         public EsculturaHolder(@NonNull View itemView) {
             super(itemView);
-
             ivEscultura = itemView.findViewById(R.id.ivEscultura);
             tvNomEscultura = itemView.findViewById(R.id.tvNomEscultura);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(itemView.getContext(), DetailEscultura.class);
+                    intent.putExtra("escultura", escultura);
+
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+
+        }
+
+        public void bind(Escultura modelescultura){
+
+            escultura = modelescultura;
+            tvNomEscultura.setText(escultura.getNom().get("ca"));
+
         }
     }
 }

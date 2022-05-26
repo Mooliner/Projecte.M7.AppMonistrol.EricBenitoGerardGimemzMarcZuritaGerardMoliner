@@ -2,10 +2,11 @@ package com.moliner.projectem7appmonistrolericbenitogerardgimemzmarczuritagerard
 
 import com.google.firebase.firestore.Blob;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Artista {
+public class Artista implements Serializable {
     private String idArtista;
     private String nom;
     private String cognoms;
@@ -14,7 +15,8 @@ public class Artista {
     private Map<String, String> biografia;
     private Map<String, String> correntArtistic;
     private Map<String, String> audio;
-    private Blob foto;
+
+    private  transient Blob  foto;
 
     public Artista() {
         biografia = new HashMap<String, String>();

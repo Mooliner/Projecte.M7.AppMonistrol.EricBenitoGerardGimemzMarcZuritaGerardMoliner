@@ -17,9 +17,11 @@
             android:value="AIzaSyCe0JIoW7nOcphoZvYWfUtFlfDDMkT-oRY"/>
 
         <activity
-            android:name=".EsculturesWindows"
-            android:exported="true">
-        </activity>
+            android:name=".DetailEscultura"
+            android:exported="true" />
+        <activity
+            android:name=".DetailArtist"
+            android:exported="true" />
 
         <activity
             android:name=".MainActivity"
